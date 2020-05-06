@@ -3,7 +3,7 @@ t1=np.arange(1,5,1).reshape(2,2)
 t2=np.arange(5,1,-1).reshape(2,2)
 m3=np.random.randn(4).reshape(2,2)
 
-print(t1)
+
 
 '''
 #纵向分割#
@@ -38,3 +38,8 @@ t_split=np.split(t,2,axis=0)
 print(t_split)
 '''
 
+
+test=np.random.randint(2, high=10, size=(2,3)) 
+test1=np.random.randint(2,10,size=(2,3))
+test2=np.arange(6).reshape(2,3)
+print(test,'\n',test1,'\n',test2)

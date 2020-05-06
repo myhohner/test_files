@@ -13,7 +13,8 @@ Z=np.sin(R)
 ax.plot_surface(X,Y,Z,rstride=1, cstride=1, cmap=plt.get_cmap('rainbow'))
 
 
-
+ax.contourf(X,Y,Z,zdir='z',offset=-2,cmap=plt.get_cmap('rainbow'))
+ax.set_zlim(-2,2) #z轴显示范围为（-2，2）
 
 
 plt.show()
