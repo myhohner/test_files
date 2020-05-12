@@ -19,8 +19,11 @@ ax.spines['bottom'].set_position(('data', 0))
 ax.yaxis.set_ticks_position('left')
 ax.spines['left'].set_position(('data', 0)) 
 
+<<<<<<< HEAD
 
 #设置能见度
+=======
+>>>>>>> 10377258c6f1b56251883173c3901edab618c9b2
 for label in ax.get_xticklabels()+ax.get_yticklabels():
     label.set_fontsize(12)
     label.set_bbox(dict(facecolor='white',edgecolor='None',alpha=0.7))

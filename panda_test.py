@@ -51,6 +51,10 @@ people=pd.merge(boys,girls,on='k',suffixes=['_boys','_girls'],how='inner')
 print(people)
 '''
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 10377258c6f1b56251883173c3901edab618c9b2
 '''
 #添加一列数据
 test['C']=pd.Series(np.arange(2,7))
