@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<script type="text/javascript">
+function copyLink(){
+var res=document.getElementsByName("ctl00$cphContent$TB_sourceURL")[0].value;
+var son=document.createElement("p");
+son.innerHTML=res;
+var obj=document.getElementsByClassName("ke-edit-iframe")[0].contentWindow;
+obj.document.getElementsByClassName("ke-content")[0].appendChild(son);
+var shenhe=document.getElementById('ctl00_cphContent_Cbx_Status'); 
+if (shenhe.checked==false){ shenhe.click();} 
+var baocun=document.getElementById('Button1'); 
+baocun.click();
+}
+</script>
+</head>
+<body>
+<textarea id="copy">待复制的内容</textarea>
+<input type="text" id="name2"/>
+<input type="button" onclick="copyLink()" value="点击复制"></input>
+<div id="aa">这是内容</div>
+</body>
+</html>
+
+<!--
+<html>
+<head>
+<script type="text/javascript">
+function getInnerHTML()
+  {
+  
+  alert(document.getElementById("tr1").innerHTML+document.getElementById("tr2").innerHTML);
+  }
+</script>
+</head>
+<body>
+
+<table border="1">
+<tr id="tr1">
+<th>Firstname</th>
+<th>Lastname</th>
+</tr>
+<tr id="tr2">
+<td>Peter</td>
+<td>Griffin</td>
+</tr>
+</table>
+<br />
+<input type="button" onclick="getInnerHTML()" 
+value="Alert innerHTML of table row" />
+
+</body>
+</html>
+
+<script type="text/javascript">
+    var x=document.getElementById('categoryDiv'); 
+    var tianjia=x.getElementsByTagName('a')[6]; 
+    tianjia.click(); 
+    
+    
+    var jinyao=document.getElementById('ctl00_cphContent_CheckBox2'); 
+    var shenhe=document.getElementById('ctl00_cphContent_Cbx_Status'); 
+    if (jinyao.checked==false){ jinyao.click();} 
+    if (shenhe.checked==false){ shenhe.click();} 
+    var baocun=document.getElementById('Button1'); 
+    baocun.click();
+</script>
+-->
