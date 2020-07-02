@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import requests,random,re,sys,io,time,asyncio
+=======
+import requests,random,re,sys,io
+>>>>>>> bf36c3b9f85edd3ea322cd6a23bedcaa967f6f44
 from selenium import webdriver
 sys.stdout=io.TextIOWrapper(sys.stdout.buffer,encoding='gb18030') 
 from selenium.webdriver.chrome.options import Options
@@ -31,12 +35,20 @@ class Search:
         chrome_options.add_argument('--headless')
         self.driver=webdriver.Chrome(driver_path,options=chrome_options)
 
+<<<<<<< HEAD
     async def selenium_search(self,path):
         self.driver.get(path)
         await asyncio.sleep(3)
         html=self.driver.page_source
         return html
 
+=======
+    def selenium_search(self,path):
+        self.driver.get(path)
+        html=self.driver.page_source
+        return html
+    
+>>>>>>> bf36c3b9f85edd3ea322cd6a23bedcaa967f6f44
     def crawl(self,url):
         html=requests.get(url,headers=self.headers)
         encode=html.apparent_encoding
@@ -48,22 +60,43 @@ class Search:
         print('finish')
         self.driver.quit()
 
+<<<<<<< HEAD
     async def search(self,url_list,data_list):
+=======
+    def search(self,url_list,data_list):
+>>>>>>> bf36c3b9f85edd3ea322cd6a23bedcaa967f6f44
         result_list=[]
         for url in url_list:
             try:
                 html=self.crawl(url)
+<<<<<<< HEAD
+=======
+                #html=self.pool.apply_async(crawl,args=(url,))
+                #html=html.get()
+
+                #print(html)
+                #print(len(html))
+                #print('*'*20)
+                #print(html2)
+>>>>>>> bf36c3b9f85edd3ea322cd6a23bedcaa967f6f44
                 for i in data_list:
                     if re.search(i,html):
                         res=1
                         continue
                     elif not re.search(i,html) and html.strip()!='' and len(html)>20:
+<<<<<<< HEAD
                         task=asyncio.create_task(self.selenium_search(url))
                         finished,unfinished=await asyncio.wait([task],return_when=asyncio.FIRST_COMPLETED)
                         for j in finished:
                             res_html=j.result()
                             #print(res_html)
                         #res_html=self.selenium_search(url)
+=======
+                        #res_html=self.pool.apply_async(selenium_search, args=(url,))
+                        #res_html=res_html.get()
+                        res_html=self.selenium_search(url)
+                        #print(res_html)
+>>>>>>> bf36c3b9f85edd3ea322cd6a23bedcaa967f6f44
                         if re.search(i,res_html):
                             res=1
                             continue
@@ -75,11 +108,17 @@ class Search:
                 res=3
                 result_list.append(res)
                 continue
+<<<<<<< HEAD
 
 #        self.tearDown()
         return result_list
 
 #爬取数据
+=======
+        self.tearDown()
+        return result_list
+
+>>>>>>> bf36c3b9f85edd3ea322cd6a23bedcaa967f6f44
     def search_test(self,url):
         try:
             html=self.crawl(url)
@@ -94,7 +133,10 @@ class Search:
             tuple=(url,'3')
         return tuple
 
+<<<<<<< HEAD
 #比较数据
+=======
+>>>>>>> bf36c3b9f85edd3ea322cd6a23bedcaa967f6f44
     def check_crawl(self,result_dict,data_list):
         for url,html in result_dict.items():
             for i in data_list:
@@ -119,12 +161,16 @@ class Search:
                     '''
         return result_dict
 
+<<<<<<< HEAD
 #selenium数据
+=======
+>>>>>>> bf36c3b9f85edd3ea322cd6a23bedcaa967f6f44
     def selenium(self,url):
         self.selenium_setup()
         res_html=self.selenium_search(url)
         self.tearDown()
         #print(res_html)
+<<<<<<< HEAD
         return res_html
 
 #爬取数据
@@ -183,3 +229,6 @@ class Search:
             url=j.result()
             result_dict.update({url,'1'})
         
+=======
+        return res_html
+>>>>>>> bf36c3b9f85edd3ea322cd6a23bedcaa967f6f44
