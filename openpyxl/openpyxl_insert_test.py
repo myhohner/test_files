@@ -1,21 +1,16 @@
-<<<<<<< HEAD
 import openpyxl,os,re,asyncio
-=======
 import openpyxl,os,re
->>>>>>> bf36c3b9f85edd3ea322cd6a23bedcaa967f6f44
 from search import Search
 from datetime import datetime
 import multiprocessing as mp
 
 class Action:
 
-<<<<<<< HEAD
-=======
+
     def pool_action(self,b,url):
         return b.search_test(url)
 
 
->>>>>>> bf36c3b9f85edd3ea322cd6a23bedcaa967f6f44
     def multicore(self,url_list):
         self.pool = mp.Pool()
         self.b=Search()
@@ -49,8 +44,6 @@ if __name__=='__main__':
     max_row = booksheet.max_row
     values=booksheet.iter_rows(min_row=2,min_col=3,max_row=max_row,max_col=3)
     url_list=['%s'%i[0].value for i in values] #获取查询网址
-<<<<<<< HEAD
-    print(url_list)
 
     #url_list=['http://hi.people.com.cn/BIG5/n2/2020/0606/c231190-34068384.html','http://www.toutiao.com/i6837381215624888840/']
     data_list=['京基','农']
@@ -64,8 +57,8 @@ if __name__=='__main__':
 
 
     #asyncio
-    result_list=asyncio.run(a.search(url_list,data_list))
-
+    result_list=asyncio.run(a.task_manager(url_list,data_list))
+    print(result_list)#测试
 
     '''
     #分布式爬虫
@@ -74,7 +67,7 @@ if __name__=='__main__':
     dict_update_origin=a.check_crawl(result_dict,data_list)
     dict_update=a.selenium_test(dict_update_origin,data_list)
 
-=======
+
     #url_list=['http://www.jlmbbz.com/news/dyxw/20200612/137055.html']
     data_list=['京基','农']
     #a=Search()
@@ -96,8 +89,7 @@ if __name__=='__main__':
     '''
 
     a.tearDown()
-=======
->>>>>>> bf36c3b9f85edd3ea322cd6a23bedcaa967f6f44
+
 
     fill_colums=4
     ws = booksheet.insert_cols(fill_colums)
@@ -108,7 +100,3 @@ if __name__=='__main__':
     workbook.save(path+'/'+'test.xlsx')
     time2=datetime.now()
     print(time2-time1)
-<<<<<<< HEAD
-=======
-
->>>>>>> bf36c3b9f85edd3ea322cd6a23bedcaa967f6f44
